@@ -6,18 +6,16 @@ import json
 from hashlib import sha1
 import utils
 
-salt = 'hORbovb2heDpEfspDYEQEXhdkisaiUUIkZVkewZk'.translate(utils.decoder)
-host = 'dZZmh://xmm-xmV.mzgTazt-ZrW.rt'.translate(utils.decoder)
-
 
 class PtcgApi():
     def __init__(self):
-        self.host = host
+        self.host = 'dZZmh://xmm-xmV.mzgTazt-ZrW.rt'.translate(utils.decoder)
+        self.salt = 'hORbovb2heDpEfspDYEQEXhdkisaiUUIkZVkewZk'.translate(utils.decoder)
 
     def _sign(self):
         ts = str(int(time.time()) * 1000 - 24 * 3600 * 1000)
         nonce = '{:0>6d}'.format(random.randint(0, 999999))
-        sign = sha1((ts + nonce + salt).encode()).hexdigest()
+        sign = sha1((ts + nonce + self.salt).encode()).hexdigest()
         return {
             'timestamp': ts,
             'signature': sign,

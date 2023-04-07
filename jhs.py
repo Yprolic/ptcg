@@ -1,6 +1,5 @@
 import requests
 import utils
-import ptcg
 
 
 class Jhs:
