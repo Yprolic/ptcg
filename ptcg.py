@@ -4,15 +4,10 @@ import time
 import requests
 import json
 from hashlib import sha1
+import utils
 
-x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-y = 'vkXupMNUJjiAGbwYnoclCFfQsKxyrETDWdVegPatzmLHhZIOqRBS'
-
-encoder = str.maketrans(x, y)
-decoder = str.maketrans(y, x)
-
-salt = 'hORbovb2heDpEfspDYEQEXhdkisaiUUIkZVkewZk'.translate(decoder)
-host = 'dZZmh://xmm-xmV.mzgTazt-ZrW.rt'.translate(decoder)
+salt = 'hORbovb2heDpEfspDYEQEXhdkisaiUUIkZVkewZk'.translate(utils.decoder)
+host = 'dZZmh://xmm-xmV.mzgTazt-ZrW.rt'.translate(utils.decoder)
 
 
 class PtcgApi():
